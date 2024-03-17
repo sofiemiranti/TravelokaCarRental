@@ -38,11 +38,12 @@ public class HomePageStepDef {
         travelokaHomePage.inputPickupDate(pickupDate);
     }
 
-    @And("User input 10:00 as pick up time")
-    public void userInputHourAndMinuteAsPickUpTime() {
+    @And("User input hour {string} and minute {string} as pick up time")
+    public void userInputHourAndMinuteAsPickUpTime(String hour, String minute) {
         travelokaHomePage.clickPickupTimeField();
-        travelokaHomePage.inputPickupHourTime();
-        travelokaHomePage.inputPickupMinuteTime();
+        travelokaHomePage.inputPickupHourTime(hour);
+        travelokaHomePage.inputPickupMinuteTime(minute);
+        travelokaHomePage.clickFinishPickupButton();
     }
 
     @And("User input {string} as drop off date")
@@ -50,15 +51,17 @@ public class HomePageStepDef {
         travelokaHomePage.inputDropoffDate(dropoffDate);
     }
 
-    @And("User input 15:30 as drop off time")
-    public void userInputHourAndMinuteAsDropOffTime() {
+    @And("User input hour {string} and minute {string} as drop off time")
+    public void userInputHourAndMinuteAsDropOffTime(String hour, String minute) {
         travelokaHomePage.clickDropoffField();
-        travelokaHomePage.inputDropoffHourTime();
-        travelokaHomePage.inputDropoffMinuteTime();
+        travelokaHomePage.inputDropoffHourTime(hour);
+        travelokaHomePage.inputDropoffMinuteTime(minute);
+        travelokaHomePage.clickFinishDropoffButton();
     }
 
     @And("User click search button")
-    public void userClickSearchButton() {
+    public void userClickSearchButton() throws InterruptedException {
         travelokaHomePage.clickSearchButton();
+        Thread.sleep(3000);
     }
 }

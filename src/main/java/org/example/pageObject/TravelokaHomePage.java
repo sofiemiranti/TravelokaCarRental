@@ -28,12 +28,16 @@ public class TravelokaHomePage {
     private WebElement pickupDateButton;
     @FindBy(css = "[data-testid='rental-search-form-time-input-start']")
     private WebElement pickupTimeField;
+    @FindBy(css = ".r-173mn98.css-18t94o4 .css-901oao")
+    private WebElement finishPickupButton;
     @FindBy(css = "[data-testid='rental-search-form-date-input-end']")
     private WebElement dropoffDateField;
     @FindBy(css = ".r-zchlnj.r-1udh08x > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) div:nth-of-type(30) div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)")
     private WebElement dropoffDateButton;
     @FindBy(css = "[data-testid='rental-search-form-time-input-end']")
     private WebElement dropoffTimeField;
+    @FindBy(css = ".r-173mn98.css-18t94o4 .css-901oao")
+    private WebElement finishDropoffButton;
     @FindBy(css = "[data-id='IcSystemSearch']")
     private WebElement searchButton;
 
@@ -67,14 +71,18 @@ public class TravelokaHomePage {
     public void clickPickupTimeField () {
         pickupTimeField.click();
     }
-    public void inputPickupHourTime () {
-        String locatorHour = ".r-xyw6el.r-18u37iz div:nth-of-type(11) > .css-901oao";
-        webDriver.findElement(By.cssSelector(locatorHour)).click();
+    public void inputPickupHourTime (String hour) {
+        String locatorHour = "//div[@class='css-1dbjc4n r-18u37iz r-xyw6el']//div[@class='css-1dbjc4n r-1loqt21 r-1777fci r-tuq35u r-1otgn73 r-1i6wzkk r-lrvibr']/div[.='" + hour +"']";
+        webDriver.findElement(By.xpath(locatorHour)).click();
     }
 
-    public void inputPickupMinuteTime () {
-        String locatorMinute = ".r-xyw6el.r-18u37iz div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)";
-        webDriver.findElement(By.cssSelector(locatorMinute)).click();
+    public void inputPickupMinuteTime (String minute) {
+        String locatorMinute = "//div[@class='css-1dbjc4n r-18u37iz r-xyw6el']//div[@class='css-1dbjc4n r-391gc0 r-1loqt21 r-1777fci r-tuq35u r-1otgn73 r-1i6wzkk r-lrvibr']/div[.='" + minute + "']";
+        webDriver.findElement(By.xpath(locatorMinute)).click();
+    }
+
+    public void clickFinishPickupButton () {
+        finishPickupButton.click();
     }
 
     public void inputDropoffDate (String dropoffDate) {
@@ -86,14 +94,18 @@ public class TravelokaHomePage {
         dropoffTimeField.click();
     }
 
-    public void inputDropoffHourTime () {
-        String locatorHour = ".r-xyw6el.r-18u37iz div:nth-of-type(16) > .css-901oao";
-        webDriver.findElement(By.cssSelector(locatorHour)).click();
+    public void inputDropoffHourTime (String hour) {
+        String locatorHour = "//div[@class='css-1dbjc4n r-18u37iz r-xyw6el']//div[@class='css-1dbjc4n r-1loqt21 r-1777fci r-tuq35u r-1otgn73 r-1i6wzkk r-lrvibr']/div[.='" + hour + "']";
+        webDriver.findElement(By.xpath(locatorHour)).click();
     }
 
-    public void inputDropoffMinuteTime () {
-        String locatorMinute = ".r-xyw6el.r-18u37iz > div:nth-of-type(3) > div:nth-of-type(2) div:nth-of-type(2) > div:nth-of-type(1)";
-        webDriver.findElement(By.cssSelector(locatorMinute)).click();
+    public void inputDropoffMinuteTime (String minute) {
+        String locatorMinute = "//div[@class='css-1dbjc4n r-18u37iz r-xyw6el']//div[@class='css-1dbjc4n r-1loqt21 r-1777fci r-tuq35u r-1otgn73 r-1i6wzkk r-lrvibr']/div[.='" + minute + "']";
+        webDriver.findElement(By.xpath(locatorMinute)).click();
+    }
+
+    public void clickFinishDropoffButton () {
+        finishDropoffButton.click();
     }
 
     public void clickSearchButton () {
