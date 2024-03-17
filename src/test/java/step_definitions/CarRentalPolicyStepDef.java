@@ -27,9 +27,13 @@ public class CarRentalPolicyStepDef {
     @And("User select other location as drop off location")
     public void userSelectOtherLocationAsDropOffLocation() throws InterruptedException {
         carRentalPolicyPage.clickOtherLocationDropoffRadioButton();
-        carRentalPolicyPage.clickDetailLocationDropoffField();
-        carRentalPolicyPage.clickNgurahRaiLocationDropoff();
-        Thread.sleep(5000);
+        Thread.sleep(2000);
+    }
+
+    @And("User input {string} as drop off location")
+    public void userInputAsDropOffLocation(String location) throws InterruptedException {
+        carRentalPolicyPage.inputDetailLocationDropoffField(location);
+        carRentalPolicyPage.clickDetailLocation();
     }
 
     @And("User input drop off notes {string}")
@@ -42,4 +46,6 @@ public class CarRentalPolicyStepDef {
         carRentalPolicyPage.clickContinueButton();
         Thread.sleep(3000);
     }
+
+
 }

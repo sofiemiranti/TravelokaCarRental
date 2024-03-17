@@ -25,9 +25,9 @@ public class CarRentalPolicyPage {
     private WebElement otherLocationDropoffRadioButton;
     @FindBy(css = ".r-184en5c.r-kdyh1x input:nth-of-type(1)")
     private WebElement detailLocationDropOffField;
-    @FindBy(css = ".r-184en5c.r-kdyh1x div:nth-of-type(5) div:nth-of-type(5)")
-    private WebElement ngurahRaiDropoffLocation;
-    @FindBy(css = ".r-1p0dtai.r-14lw9ot")
+    @FindBy(xpath = "//div[.='KutaBadung, Bali, Indonesia, Asia Tenggara, AsiaLandmark']")
+    private WebElement detailDropoffLocation;
+    @FindBy(css = ".r-bcqeeo")
     private WebElement dropoffNotesField;
     @FindBy(css = ".r-5wp0in")
     private WebElement continueButton;
@@ -52,12 +52,13 @@ public class CarRentalPolicyPage {
         otherLocationDropoffRadioButton.click();
     }
 
-    public void clickDetailLocationDropoffField () {
-        detailLocationDropOffField.click();
+    public void inputDetailLocationDropoffField (String location) throws InterruptedException {
+        detailLocationDropOffField.sendKeys(location);
+        Thread.sleep(2000);
     }
 
-    public void clickNgurahRaiLocationDropoff () {
-        ngurahRaiDropoffLocation.click();
+    public void clickDetailLocation () {
+        detailDropoffLocation.click();
     }
 
     public void inputDropoffNotesField (String notes) {

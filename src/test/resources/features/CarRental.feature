@@ -17,5 +17,17 @@ Feature: Car Rental
     Then User will be redirected to car rental policy page
     When User select rental office as pick up location
     And User select other location as drop off location
+    And User input "kuta" as drop off location
     And User input drop off notes "please be on time"
     And User click continue button on car rental policy page
+    Then User will redirected to booking page
+    When User input booker's full name "Sofie Miranti"
+    And User input booker's phone number "87712345678"
+    And User input booker's email "sofie121212@gmail.com"
+    And User click save booker's data
+    And User choose "Nona" as driver's title
+    And User input driver's full name "Sofie Miranti"
+    And User input driver's phone number "87712345678"
+    And User click save driver's data
+    And User click continue button in booking page
+
