@@ -30,4 +30,16 @@ Feature: Car Rental
     And User input driver's phone number "87712345678"
     And User click save driver's data
     And User click continue button in booking page
+    And User input a special request "baby seat"
+    And User check all rental requirements
+    And User click continue to payment button
+    Then User will see pop up to verify user's booking is correct
+    When User click continue button on the pop up
+    Then User will be redirected to payment page
+    When User choose alfamart as payment method
+    And User click pay with alfamart button
+    Then User will be redirected to payment instructions page
+
+
+
 

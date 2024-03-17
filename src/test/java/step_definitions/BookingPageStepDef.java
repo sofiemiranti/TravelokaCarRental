@@ -62,4 +62,32 @@ public class BookingPageStepDef {
         bookingPage.clickContinueButton();
         Thread.sleep(3000);
     }
+
+    @And("User input a special request {string}")
+    public void userInputASpecialRequest(String request) {
+        bookingPage.inputSpecialRequestField(request);
+    }
+
+    @And("User check all rental requirements")
+    public void userCheckAllRentalRequirements() throws InterruptedException {
+        bookingPage.clickRequirementButton();
+        bookingPage.checkAllRequirements();
+        bookingPage.clickSaveRequirementsButton();
+    }
+
+    @And("User click continue to payment button")
+    public void userClickContinueToPaymentButton() throws InterruptedException {
+        bookingPage.clickContinuePayment();
+    }
+
+    @Then("User will see pop up to verify user's booking is correct")
+    public void userWillSeePopUpToVerifyUserSBookingIsCorrect() {
+        Assert.assertTrue(bookingPage.verifyPopUp());
+    }
+
+    @When("User click continue button on the pop up")
+    public void userClickContinueButtonOnThePopUp() throws InterruptedException {
+        bookingPage.clickContinueBookingButton();
+        Thread.sleep(6000);
+    }
 }
